@@ -86,7 +86,7 @@ async def send_to_me_text(message: str) -> None:
         "object_type": "text",
         "text": message[:950],
         "link": {"web_url": "https://www.hankyung.com/", "mobile_web_url": "https://www.hankyung.com/"},
-        "button_title": "영어뉴스도 한번?",
+        "button_title": "꼬들꼬들~",
     }
     data = {"template_object": json.dumps(template_object, ensure_ascii=False)}
 
@@ -105,7 +105,7 @@ async def send_to_friend_uuid(receiver_uuid: str, message: str) -> None:
         "object_type": "text",
         "text": message[:950],
         "link": {"web_url": "https://www.hankyung.com/", "mobile_web_url": "https://www.hankyung.com/"},
-        "button_title": "영어뉴스도 한번?",
+        "button_title": "꼬들꼬들~",
     }
     data = {
         "receiver_uuids": json.dumps([receiver_uuid]),
