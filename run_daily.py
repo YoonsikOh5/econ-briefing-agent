@@ -5,6 +5,9 @@ from app.news_client import fetch_rss_items
 from app.briefing_quality import dedup_by_title, select_top_items, diversify_by_source
 from app.summarizer import generate_top3_news_briefing_openai
 from app.kakao_client import send_to_me_text_multi, send_to_friend_uuid_multi
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 
 def _env(name: str, required: bool = True) -> str:
     v = os.getenv(name, "").strip()
@@ -26,7 +29,9 @@ async def main():
     items = select_top_items(items, top_n=8)
     items = diversify_by_source(items, per_source_cap=3)
 
-    briefing = await generate_top3_news_briefing_openai(items)
+    date_kst = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d")
+
+    briefing = await generate_top3_news_briefing_openai(items, date_kst)
 
     await send_to_me_text_multi(briefing)
     if friend_uuid:
