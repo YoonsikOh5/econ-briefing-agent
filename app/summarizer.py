@@ -30,7 +30,7 @@ async def generate_top3_news_briefing_openai(news_items: list[dict], date_str: s
         "- Do NOT guess or change the date.\n\n"
         "Output MUST follow this exact format (plain text):\n"
         "[아침 경제 브리핑]\n"
-        f"{date_str} (요일)\n\n"
+        f"{date_str}\n\n"
         "1) 제목\n"
         "   - 요약: (TWO sentence)\n"
         "   - 링크: URL\n"
