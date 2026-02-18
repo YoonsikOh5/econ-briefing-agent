@@ -5,3 +5,4 @@ httpx
 feedparser
 python-dotenv
 openai
+tzdata

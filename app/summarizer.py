@@ -16,9 +16,9 @@ def _extract_output_text(resp) -> str:
                 parts.append(t.strip())
     return "\n".join(parts).strip()
 
-async def generate_top3_news_briefing_openai(news_items: list[dict]) -> str:
+async def generate_top3_news_briefing_openai(news_items: list[dict], date_str: str) -> str:
     system = (
-        "You are a Korean morning newsletter writer.\n"
+       "You are a Korean morning newsletter writer.\n"
         "Write a short economics newsletter for KakaoTalk.\n"
         "Use ONLY provided items (title, link, summary). Do not invent facts.\n"
         "No Chinese. No English.\n\n"
@@ -26,8 +26,12 @@ async def generate_top3_news_briefing_openai(news_items: list[dict]) -> str:
         "- Calm, clear, adult-friendly.\n"
         "- Slightly newsletter-ish (not formal report).\n\n"
         "Output MUST follow this exact format (plain text):\n"
-        "[아침 경제 브리핑]\n\n"
-        "1) 제목\n"
+        "IMPORTANT:\n"
+        f"- You MUST use this date exactly: {date_str}\n"
+        "- Do NOT guess or change the date.\n\n"
+        "Output MUST follow this exact format (plain text):\n"
+        f"[아침 경제 브리핑] {date_str}\n\n"
+        "1) (제목 write title of the news)\n"
         "   - 요약: (TWO sentence)\n"
         "   - 링크: URL\n"
         "2) ...\n"
