@@ -86,7 +86,7 @@ async def send_to_me_text(message: str) -> None:
         "object_type": "text",
         "text": message[:950],
         "link": {"web_url": "https://www.hankyung.com/", "mobile_web_url": "https://www.hankyung.com/"},
-        "button_title": "꼬들꼬들~",
+        "button_title": "꼬맨틀!",
     }
     data = {"template_object": json.dumps(template_object, ensure_ascii=False)}
 
