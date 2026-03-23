@@ -105,7 +105,7 @@ async def send_to_friend_uuid(receiver_uuid: str, message: str) -> None:
         "object_type": "text",
         "text": message[:950],
         "link": {"web_url": "https://www.hankyung.com/", "mobile_web_url": "https://www.hankyung.com/"},
-        "button_title": "꼬들꼬들~",
+        "button_title": "꼬맨틀!",
     }
     data = {
         "receiver_uuids": json.dumps([receiver_uuid]),
